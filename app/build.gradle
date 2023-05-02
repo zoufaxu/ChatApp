@@ -1,5 +1,8 @@
+
+
 plugins {
     id 'com.android.application'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -12,7 +15,7 @@ android {
         targetSdk 32
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -26,13 +29,64 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+//    启用视图绑定视图绑定是一个特性，它允许您更容易地编写与视图交互的代码。
+//    一旦在模块中启用了视图绑定，它就会为该模块中的每个XML布局文件生成绑定类。
+//    绑定类的实例包含对在相应布局中具有ID的所有视图的直接引用。
+    buildFeatures{
+        viewBinding true
+    }
 }
+
+
+
 
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'com.google.firebase:firebase-messaging:23.0.2'
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.5.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+//    sdp -可扩展的大小单位一个android库，
+//    它提供了一个新的大小单位- sdp(可扩展dp)。此尺寸单位随屏幕尺寸缩放。
+//    它可以帮助Android支持多种屏幕尺寸的开发人员。
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+
+//    圆形ImageView支持圆角的快速ImageView(和Drawable)(以及椭圆形或圆形)。
+//    它支持许多额外的功能，包括椭圆、圆角矩形、ScaleTypes和TileModes。
+
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+//    implementation platform('com.google.firebase:firebase-bom:31.5.0')
+
+//    使MultiDexAndroid应用程序(APK)文件中包含可执行字节码文件Dalvik Executable (DEX)文件的形式，
+//    其中包含用于运行应用程序的编译代码。
+//    Dalvik Executable规范将单个DEX文件中可以引用的方法总数限制为65,536，
+//    包括Android框架方法，库方法和您自己代码中的方法。
+//    要超过这个限制，需要配置应用程序构建过程以生成多个DEX文件，称为MultiDex配置。
+
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
